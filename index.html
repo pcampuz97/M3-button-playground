@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3 Button Component - Playground</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>M3 Button Playground</h1>
+        
+        <div class="playground-container">
+            <div class="preview-section">
+                <h2>Preview</h2>
+                <div class="preview-area">
+                    <button id="preview-button" class="m3-button medium filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Label</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <h2>Controls</h2>
+                <div class="control-group">
+                    <label>Size:</label>
+                    <select id="size-control">
+                        <option value="x-small">X-Small</option>
+                        <option value="small">Small</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="large">Large</option>
+                        <option value="x-large">X-Large</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Style:</label>
+                    <select id="style-control">
+                        <option value="filled" selected>Filled</option>
+                        <option value="tonal">Tonal</option>
+                        <option value="outline">Outline</option>
+                        <option value="elevated">Elevated</option>
+                        <option value="text">Text</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Shape:</label>
+                    <select id="shape-control">
+                        <option value="round" selected>Round</option>
+                        <option value="square">Square</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Label:</label>
+                    <input type="text" id="label-control" value="Label">
+                </div>
+
+                <div class="control-group">
+                    <label>Icon:</label>
+                    <select id="icon-control">
+                        <option value="star" selected>Star</option>
+                        <option value="favorite">Heart</option>
+                        <option value="circle">Circle</option>
+                        <option value="play_arrow">Play</option>
+                        <option value="check">Check</option>
+                        <option value="add">Add</option>
+                        <option value="settings">Settings</option>
+                        <option value="none">No Icon</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="disabled-control">
+                        Disabled
+                    </label>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h2>Generated Code</h2>
+                <pre><code id="generated-code"></code></pre>
+            </div>
+        </div>
+
+        <section class="variant-section">
+            <h2>All Variants Reference</h2>
+            
+            <div class="variant-group">
+                <h3>Sizes</h3>
+                <div class="buttons-row">
+                    <button class="m3-button x-small filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">X-Small</span>
+                    </button>
+                    <button class="m3-button small filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Small</span>
+                    </button>
+                    <button class="m3-button medium filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Medium</span>
+                    </button>
+                    <button class="m3-button large filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Large</span>
+                    </button>
+                    <button class="m3-button x-large filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">X-Large</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="variant-group">
+                <h3>Styles</h3>
+                <div class="buttons-row">
+                    <button class="m3-button medium filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Filled</span>
+                    </button>
+                    <button class="m3-button medium tonal round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Tonal</span>
+                    </button>
+                    <button class="m3-button medium outline round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Outline</span>
+                    </button>
+                    <button class="m3-button medium elevated round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Elevated</span>
+                    </button>
+                    <button class="m3-button medium text round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Text</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="variant-group">
+                <h3>Shapes</h3>
+                <div class="buttons-row">
+                    <button class="m3-button medium filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Round</span>
+                    </button>
+                    <button class="m3-button medium filled square">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Square</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="variant-group">
+                <h3>States</h3>
+                <div class="buttons-row">
+                    <button class="m3-button medium filled round">
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Normal</span>
+                    </button>
+                    <button class="m3-button medium filled round" disabled>
+                        <span class="material-symbols-sharp icon">star</span>
+                        <span class="label">Disabled</span>
+                    </button>
+                    <button class="m3-button medium filled round">
+                        <span class="label">No Icon</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

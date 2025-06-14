@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #fffbfe;
+  color: #49454f;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-family: "Roboto";
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0;
+  margin-bottom: 40px;
+  color: #49454f;
+}
+
+h2 {
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+  margin-bottom: 24px;
+  color: #49454f;
+}
+
+.playground-container {
+  display: grid;
+  grid-template-columns: 1fr 300px 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.preview-section .preview-area {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f2fa;
+  border-radius: 28px;
+  padding: 40px;
+}
+
+.controls-section .control-group {
+  margin-bottom: 20px;
+}
+.controls-section .control-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #49454f;
+}
+.controls-section .control-group select, .controls-section .control-group input[type=text] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #cac4d0;
+  border-radius: 12px;
+  background-color: #fffbfe;
+  color: #49454f;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+.controls-section .control-group select:focus, .controls-section .control-group input[type=text]:focus {
+  outline: none;
+  border-color: #6750a4;
+}
+.controls-section .control-group input[type=checkbox] {
+  margin-right: 8px;
+}
+
+.code-section pre {
+  background-color: #f7f2fa;
+  padding: 20px;
+  border-radius: 16px;
+  overflow-x: auto;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+.code-section pre code {
+  color: #49454f;
+}
+
+.variant-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #cac4d0;
+}
+.variant-section h2 {
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+  margin-bottom: 32px;
+  color: #49454f;
+}
+.variant-section h3 {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  color: #49454f;
+  margin-bottom: 16px;
+}
+.variant-section .variant-group {
+  background-color: #f7f2fa;
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.variant-section .variant-group:last-child {
+  margin-bottom: 0;
+}
+.variant-section .buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+@media (max-width: 768px) {
+  .variant-section .buttons-row {
+    gap: 12px;
+  }
+}
+
+.material-symbols-sharp {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.m3-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.m3-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.m3-button:hover::before {
+  opacity: 0.08;
+}
+.m3-button:active::before {
+  opacity: 0.12;
+}
+.m3-button:focus-visible {
+  outline: 2px solid #6750a4;
+  outline-offset: 2px;
+}
+.m3-button .icon {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  position: relative;
+}
+.m3-button .label {
+  position: relative;
+  white-space: nowrap;
+}
+.m3-button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.m3-button.x-small {
+  padding: 6px 12px;
+  gap: 4px;
+}
+.m3-button.x-small .icon {
+  font-size: 20px;
+}
+.m3-button.x-small .label {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+.m3-button.small {
+  padding: 10px 16px;
+  gap: 8px;
+}
+.m3-button.small .icon {
+  font-size: 20px;
+}
+.m3-button.small .label {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+.m3-button.medium, .m3-button:not(.x-small):not(.small):not(.medium):not(.large):not(.x-large) {
+  padding: 16px 24px;
+  gap: 8px;
+}
+.m3-button.medium .icon, .m3-button:not(.x-small):not(.small):not(.medium):not(.large):not(.x-large) .icon {
+  font-size: 24px;
+}
+.m3-button.medium .label, .m3-button:not(.x-small):not(.small):not(.medium):not(.large):not(.x-large) .label {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+.m3-button.large {
+  padding: 32px 48px;
+  gap: 12px;
+}
+.m3-button.large .icon {
+  font-size: 32px;
+}
+.m3-button.large .label {
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+}
+.m3-button.x-large {
+  padding: 48px 64px;
+  gap: 16px;
+}
+.m3-button.x-large .icon {
+  font-size: 40px;
+}
+.m3-button.x-large .label {
+  font-family: "Roboto";
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0;
+}
+
+.m3-button.filled, .m3-button:not(.filled):not(.tonal):not(.outline):not(.elevated):not(.text) {
+  background-color: #6750a4;
+  color: #ffffff;
+}
+.m3-button.tonal {
+  background-color: #e8def8;
+  color: #4a4459;
+}
+.m3-button.outline {
+  background-color: transparent;
+  color: #49454f;
+  border: 1px solid #cac4d0;
+}
+.m3-button.elevated {
+  background-color: #f7f2fa;
+  color: #6750a4;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.m3-button.elevated:hover {
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.m3-button.elevated.large, .m3-button.elevated.x-large {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+.m3-button.elevated.large:hover, .m3-button.elevated.x-large:hover {
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3), 0px 8px 16px 6px rgba(0, 0, 0, 0.15);
+}
+.m3-button.text {
+  background-color: transparent;
+  color: #6750a4;
+}
+
+.m3-button.round {
+  border-radius: 100px;
+}
+.m3-button.square.x-small, .m3-button.square.small {
+  border-radius: 12px;
+}
+.m3-button.square.medium, .m3-button.square:not(.x-small):not(.small):not(.medium):not(.large):not(.x-large) {
+  border-radius: 16px;
+}
+.m3-button.square.large {
+  border-radius: 28px;
+}
+.m3-button.square.x-large {
+  border-radius: 28px;
+}
+
+.m3-button:not(.round):not(.square) {
+  border-radius: 100px;
+}
+
+/*# sourceMappingURL=styles.css.map */

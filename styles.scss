@@ -1,0 +1,426 @@
+// Design Tokens from Figma
+$m3-primary: #6750a4;
+$m3-on-primary: #ffffff;
+$m3-surface: #fffbfe;
+$m3-surface-container-low: #f7f2fa;
+$m3-on-surface-variant: #49454f;
+$m3-outline-variant: #cac4d0;
+$m3-on-secondary-container: #4a4459;
+$m3-secondary-container: #e8def8;
+
+// Typography Variables (from Figma)
+$m3-font-family: "Roboto";
+
+// Headline Large
+$m3-headline-large: (
+    'font-family': $m3-font-family,
+    'font-size': 32px,
+    'font-weight': 400,
+    'line-height': 40px,
+    'letter-spacing': 0
+);
+
+// Headline Small
+$m3-headline-small: (
+    'font-family': $m3-font-family,
+    'font-size': 24px,
+    'font-weight': 400,
+    'line-height': 32px,
+    'letter-spacing': 0
+);
+
+// Title Medium
+$m3-title-medium: (
+    'font-family': $m3-font-family,
+    'font-size': 16px,
+    'font-weight': 500,
+    'line-height': 24px,
+    'letter-spacing': 0.15px
+);
+
+// Label Large
+$m3-label-large: (
+    'font-family': $m3-font-family,
+    'font-size': 14px,
+    'font-weight': 500,
+    'line-height': 20px,
+    'letter-spacing': 0.1px
+);
+
+// Spacing
+$m3-spacing-base: 16px;
+$m3-spacing-2x: $m3-spacing-base * 2;
+$m3-spacing-3x: $m3-spacing-base * 3;
+$m3-spacing-4x: $m3-spacing-base * 4;
+
+// Padding
+$m3-padding-small: $m3-spacing-base;
+$m3-padding-medium: $m3-spacing-2x;
+$m3-padding-large: $m3-spacing-3x;
+$m3-padding-xlarge: 48px;
+$m3-padding-2xlarge: 64px;
+
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+// Mixins
+@mixin headline-large {
+    font-family: map-get($m3-headline-large, 'font-family');
+    font-size: map-get($m3-headline-large, 'font-size');
+    font-weight: map-get($m3-headline-large, 'font-weight');
+    line-height: map-get($m3-headline-large, 'line-height');
+    letter-spacing: map-get($m3-headline-large, 'letter-spacing');
+}
+
+@mixin headline-small {
+    font-family: map-get($m3-headline-small, 'font-family');
+    font-size: map-get($m3-headline-small, 'font-size');
+    font-weight: map-get($m3-headline-small, 'font-weight');
+    line-height: map-get($m3-headline-small, 'line-height');
+    letter-spacing: map-get($m3-headline-small, 'letter-spacing');
+}
+
+@mixin title-medium {
+    font-family: map-get($m3-title-medium, 'font-family');
+    font-size: map-get($m3-title-medium, 'font-size');
+    font-weight: map-get($m3-title-medium, 'font-weight');
+    line-height: map-get($m3-title-medium, 'line-height');
+    letter-spacing: map-get($m3-title-medium, 'letter-spacing');
+}
+
+@mixin label-large {
+    font-family: map-get($m3-label-large, 'font-family');
+    font-size: map-get($m3-label-large, 'font-size');
+    font-weight: map-get($m3-label-large, 'font-weight');
+    line-height: map-get($m3-label-large, 'line-height');
+    letter-spacing: map-get($m3-label-large, 'letter-spacing');
+}
+
+// Material Symbols configuration
+.material-symbols-sharp {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+// Button Base Styles
+.m3-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $m3-spacing-base / 2;
+    border: none;
+    cursor: pointer;
+    font-family: $m3-font-family;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+
+    // State layer container
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: currentColor;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    // Hover state
+    &:hover::before {
+        opacity: 0.08;
+    }
+
+    // Active/Pressed state
+    &:active::before {
+        opacity: 0.12;
+    }
+
+    // Focus state
+    &:focus-visible {
+        outline: 2px solid $m3-primary;
+        outline-offset: 2px;
+    }
+
+    .icon {
+        font-size: inherit;
+        width: 1em;
+        height: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        position: relative;
+    }
+
+    .label {
+        position: relative;
+        white-space: nowrap;
+    }
+
+    &:disabled {
+        opacity: 0.38;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+// Size Variants with proper icon sizing
+.m3-button {
+    &.x-small {
+        padding: $m3-spacing-base * 0.375 $m3-spacing-base * 0.75;
+        gap: $m3-spacing-base / 4;
+        .icon {
+            font-size: 20px;
+        }
+        .label {
+            @include label-large;
+        }
+    }
+
+    &.small {
+        padding: $m3-spacing-base * 0.625 $m3-spacing-base;
+        gap: $m3-spacing-base / 2;
+        .icon {
+            font-size: 20px;
+        }
+        .label {
+            @include label-large;
+        }
+    }
+
+    &.medium {
+        padding: $m3-spacing-base $m3-spacing-base * 1.5;
+        gap: $m3-spacing-base / 2;
+        .icon {
+            font-size: 24px;
+        }
+        .label {
+            @include title-medium;
+        }
+    }
+
+    &.large {
+        padding: $m3-spacing-2x $m3-spacing-3x;
+        gap: $m3-spacing-base * 0.75;
+        .icon {
+            font-size: 32px;
+        }
+        .label {
+            @include headline-small;
+        }
+    }
+
+    &.x-large {
+        padding: $m3-padding-xlarge $m3-padding-2xlarge;
+        gap: $m3-spacing-base;
+        .icon {
+            font-size: 40px;
+        }
+        .label {
+            @include headline-large;
+        }
+    }
+}
+
+// Style Variants
+.m3-button {
+    &.filled {
+        background-color: $m3-primary;
+        color: $m3-on-primary;
+    }
+
+    &.tonal {
+        background-color: $m3-secondary-container;
+        color: $m3-on-secondary-container;
+    }
+
+    &.outline {
+        background-color: transparent;
+        color: $m3-on-surface-variant;
+        border: 1px solid $m3-outline-variant;
+    }
+
+    &.elevated {
+        background-color: $m3-surface-container-low;
+        color: $m3-primary;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+                    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+            box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),
+                        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        &.large, &.x-large {
+            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+                        0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+
+            &:hover {
+                box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3),
+                            0px 8px 16px 6px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+
+    &.text {
+        background-color: transparent;
+        color: $m3-primary;
+    }
+}
+
+// Shape Variants
+.m3-button {
+    &.round {
+        border-radius: 100px;
+    }
+
+    &.square {
+        &.x-small, &.small {
+            border-radius: $m3-spacing-base * 0.75;
+        }
+        &.medium {
+            border-radius: $m3-spacing-base;
+        }
+        &.large, &.x-large {
+            border-radius: $m3-spacing-base * 1.75;
+        }
+    }
+}
+
+// Default styles (if no variants specified)
+.m3-button:not(.round):not(.square) {
+    border-radius: 100px;
+}
+
+.m3-button:not(.filled):not(.tonal):not(.outline):not(.elevated):not(.text) {
+    @extend .filled;
+}
+
+// Playground Styles
+body {
+    margin: 0;
+    padding: $m3-spacing-base * 1.25;
+    background-color: $m3-surface;
+    color: $m3-on-surface-variant;
+    font-family: $m3-font-family;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $m3-spacing-base * 1.25;
+}
+
+h1 {
+    @include headline-large;
+    margin-bottom: $m3-spacing-base * 2.5;
+    color: $m3-on-surface-variant;
+}
+
+h2 {
+    @include headline-small;
+    margin-bottom: $m3-spacing-base * 1.5;
+    color: $m3-on-surface-variant;
+}
+
+h3 {
+    @include title-medium;
+    color: $m3-on-surface-variant;
+    margin-bottom: $m3-spacing-base;
+}
+
+.playground-container {
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    gap: $m3-spacing-base * 2.5;
+    margin-bottom: $m3-spacing-base * 3.75;
+}
+
+.preview-section {
+    .preview-area {
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $m3-surface-container-low;
+        border-radius: $m3-spacing-base * 1.75;
+        padding: $m3-spacing-base * 2.5;
+    }
+}
+
+.controls-section {
+    .control-group {
+        margin-bottom: $m3-spacing-base * 1.25;
+
+        label {
+            display: block;
+            margin-bottom: $m3-spacing-base / 2;
+            @include label-large;
+            color: $m3-on-surface-variant;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: $m3-spacing-base / 2 $m3-spacing-base * 0.75;
+            border: 1px solid $m3-outline-variant;
+            border-radius: $m3-spacing-base * 0.75;
+            background-color: $m3-surface;
+            color: $m3-on-surface-variant;
+            @include label-large;
+
+            &:focus {
+                outline: none;
+                border-color: $m3-primary;
+            }
+        }
+
+        input[type="checkbox"] {
+            margin-right: $m3-spacing-base / 2;
+        }
+    }
+}
+
+.code-section {
+    pre {
+        background-color: $m3-surface-container-low;
+        padding: $m3-spacing-base * 1.25;
+        border-radius: $m3-spacing-base;
+        overflow-x: auto;
+        @include label-large;
+
+        code {
+            color: $m3-on-surface-variant;
+        }
+    }
+}
+
+.variant-section {
+    margin-top: $m3-spacing-base * 3.75;
+    padding-top: $m3-spacing-base * 2.5;
+    border-top: 1px solid $m3-outline-variant;
+
+    .variant-group {
+        background-color: $m3-surface-container-low;
+        border-radius: $m3-spacing-base * 1.75;
+        padding: $m3-spacing-base * 1.5;
+        margin-bottom: $m3-spacing-base * 1.5;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .buttons-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $m3-spacing-base;
+        align-items: flex-start;
+
+        @media (max-width: 768px) {
+            gap: $m3-spacing-base * 0.75;
+        }
+    }
+} 
